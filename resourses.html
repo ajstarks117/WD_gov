@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Department of Agriculture & Farmers Welfare</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2E7D32;
+            --secondary-color: #2E7D32;
+            --text-color: #333;
+            --light-bg: #f5f5f5;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .header img {
+            height: 80px;
+            margin-right: 1rem;
+            border-radius: 2px;
+        }
+
+        .nav {
+            background-color: var(--secondary-color);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .resource-card {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .resource-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .resource-card li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .resource-card li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .download-section {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .download-item {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="https://pbs.twimg.com/ad_img/1382903576159084547/S7tl-iox?format=png&name=900x900" alt="Agriculture Department Logo" align="left">
+        <h1>Department of Agriculture & Farmers Welfare</h1>
+    </header>
+
+    <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="hero-section">
+        <h1>Agricultural Resources</h1>
+        <p>Access comprehensive resources and information to enhance agricultural productivity</p>
+    </div>
+
+    <div class="container">
+        <div class="resource-grid">
+            <div class="resource-card">
+                <h3>Farmer Education</h3>
+                <ul>
+                    <li>Best Farming Practices Guides</li>
+                    <li>Crop Management Tutorials</li>
+                    <li>Soil Health Management</li>
+                    <li>Water Conservation Techniques</li>
+                    <li>Organic Farming Guidelines</li>
+                </ul>
+            </div>
+
+            <div class="resource-card">
+                <h3>Technical Resources</h3>
+                <ul>
+                    <li>Agricultural Equipment Manuals</li>
+                    <li>Modern Farming Technologies</li>
+                    <li>Irrigation Systems Guide</li>
+                    <li>Pest Management Solutions</li>
+                    <li>Weather Monitoring Tools</li>
+                </ul>
+            </div>
+
+            <div class="resource-card">
+                <h3>Government Schemes</h3>
+                <ul>
+                    <li>PM-KISAN Scheme Details</li>
+                    <li>Crop Insurance Programs</li>
+                    <li>Agricultural Subsidies</li>
+                    <li>Rural Development Initiatives</li>
+                    <li>Financial Assistance Programs</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="resource-grid">
+            <div class="resource-card">
+                <h3>Market Information</h3>
+                <ul>
+                    <li>Crop Price Information</li>
+                    <li>Market Trends Analysis</li>
+                    <li>Export Opportunities</li>
+                    <li>Supply Chain Management</li>
+                    <li>Agricultural Trade Data</li>
+                </ul>
+            </div>
+
+            <div class="resource-card">
+                <h3>Research & Development</h3>
+                <ul>
+                    <li>Latest Agricultural Research</li>
+                    <li>Climate-Smart Agriculture</li>
+                    <li>Innovative Farming Methods</li>
+                    <li>Crop Variety Information</li>
+                    <li>Research Publications</li>
+                </ul>
+            </div>
+
+            <div class="resource-card">
+                <h3>Digital Resources</h3>
+                <ul>
+                    <li>Mobile Applications</li>
+                    <li>E-Learning Platforms</li>
+                    <li>Agricultural Databases</li>
+                    <li>Online Advisory Services</li>
+                    <li>Digital Marketing Platforms</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="download-section">
+            <h2>Important Downloads</h2>
+            <div class="download-grid">
+                <div class="download-item">
+                    <span>📄</span>
+                    <div>
+                        <h4>Agricultural Policy 2024</h4>
+                        <small>PDF, 2.5 MB</small>
+                    </div>
+                </div>
+                <div class="download-item">
+                    <span>📄</span>
+                    <div>
+                        <h4>Seasonal Crop Guide</h4>
+                        <small>PDF, 1.8 MB</small>
+                    </div>
+                </div>
+                <div class="download-item">
+                    <span>📄</span>
+                    <div>
+                        <h4>Scheme Guidelines</h4>
+                        <small>PDF, 3.2 MB</small>
+                    </div>
+                </div>
+                <div class="download-item">
+                    <span>📄</span>
+                    <div>
+                        <h4>Annual Report 2023</h4>
+                        <small>PDF, 4.5 MB</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 Department of Agriculture & Farmers Welfare, Government of India</p>
+    </footer>
+</body>
+</html>
