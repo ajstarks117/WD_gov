@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Agriculture Department, Government of India</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container header-content">
+        <div class="logo-section">
+          <img src="img/emblem.webp" alt="Government of India Emblem" />
+          <div class="department-name">
+            <h1>Department of Agriculture</h1>
+            <p>Government of India</p>
+          </div>
+        </div>
+        <nav>
+          <a href="gov_landing.html"><span class="crop"></span>Home</a>
+          <a href="about.html"><span class="crop"></span>About</a>
+          <a href="services.html"><span class="crop"></span>Services</a>
+          <a href="schemes.html"><span class="crop"></span>Schemes</a>
+          <a href="contact.html" class="active"><span class="crop"></span>Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="contact-form">
+      <div class="card">
+        <h2>CONTACT US</h2>
+        <form action="#" method="post">
+          <label for="name">Full Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your full name"
+            required
+          />
+
+          <label for="email">Email Address:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+          />
+
+          <label for="subject">Subject:</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="Enter subject"
+            required
+          />
+
+          <label for="message">Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Enter your message here"
+            rows="4"
+            required
+          ></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p>Krishi Bhawan, New Delhi</p>
+            <p>Phone: 1800-XXX-XXXX</p>
+            <p>Email: info@agriculture.gov.in</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Sitemap</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#">Facebook</a>
+              <a href="#">Twitter</a>
+              <a href="#">YouTube</a>
+            </div>
+          </div>
+          <div class="footer-section newsletter">
+            <h4>Newsletter</h4>
+            <form>
+              <input type="email" placeholder="Enter your email" />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Department of Agriculture, Government of India. All
+            rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

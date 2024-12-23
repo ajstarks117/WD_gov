@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+  background-color: #1b5e20;
+  color: white;
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-section img {
+  height: 50px;
+}
+
+.department-name h1 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.department-name p {
+  font-size: 14px;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  display: flex;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Contact Form Styles */
+.contact-form {
+  padding: 60px 0;
+  background-color: #f5f5f5;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 20px;
+}
+
+.card h2 {
+  text-align: center;
+  color: #1b5e20;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  font-weight: 500;
+  color: #333;
+}
+
+input,
+textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #1b5e20;
+}
+
+button {
+  background-color: #1b5e20;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2e7d32;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #0a3d12;
+  color: white;
+  padding: 40px 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.footer-section h4 {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.footer-section p,
+.footer-section li {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #a5d6a7;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.newsletter input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.newsletter button {
+  padding: 8px 20px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #2e7d32;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  nav {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .department-name h1 {
+    font-size: 20px;
+  }
+}
+
+
+/* Coin styles */
+.crop {
+  display: inline-block;
+  margin-right: 8px; 
+  width: 20px;
+  height: 20px;
+  background: url("img/crop.webp") no-repeat center;
+  background-size: contain;
+  transform: scale(0); 
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: spin 1s infinite linear;
+  opacity: 0; 
+}
+
+nav a:hover .crop {
+  transform: scale(1.5); /* Make the coin visible */
+  opacity: 1; /* Fade it in */
+}
