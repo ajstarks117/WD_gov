@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Department of Agriculture - Government of India</title>
+    <link rel="stylesheet" href="test.css" />
+  </head>
+  <body>
+    <!-- Previous header code remains the same -->
+    
+    <section class="hero">
+      <div class="slider">
+        <div class="slide-track">
+          <!-- Duplicate slides for infinite loop -->
+          <div class="slide">
+            <img src="/api/placeholder/1200/400" alt="Agriculture Banner 1" />
+            <div class="slide-overlay">
+              <div class="slide-text">
+                <h2>Empowering Indian Agriculture</h2>
+                <p>Supporting farmers and ensuring food security for the nation</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="/api/placeholder/1200/400" alt="Agriculture Banner 2" />
+            <div class="slide-overlay">
+              <div class="slide-text">
+                <h2>Digital Agriculture</h2>
+                <p>Modernizing farming with technology and innovation</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="/api/placeholder/1200/400" alt="Agriculture Banner 3" />
+            <div class="slide-overlay">
+              <div class="slide-text">
+                <h2>Sustainable Farming</h2>
+                <p>Promoting eco-friendly agricultural practices</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-nav">
+          <button class="slider-button" data-slide="0"></button>
+          <button class="slider-button" data-slide="1"></button>
+          <button class="slider-button" data-slide="2"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rest of the HTML remains the same -->
+  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const track = document.querySelector('.slide-track');
+      const slides = document.querySelectorAll('.slide');
+      const buttons = document.querySelectorAll('.slider-button');
+      let currentSlide = 0;
+      let slideInterval;
+
+      function updateSlide(index) {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        buttons.forEach((button, i) => {
+          button.classList.toggle('active', i === index);
+        });
+        currentSlide = index;
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlide(currentSlide);
+      }
+
+      function startSlideShow() {
+        slideInterval = setInterval(nextSlide, 5000);
+      }
+
+      function resetSlideShow() {
+        clearInterval(slideInterval);
+        startSlideShow();
+      }
+
+      buttons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+          updateSlide(index);
+          resetSlideShow();
+        });
+      });
+
+      // Start the slideshow
+      startSlideShow();
+    });
+  </script>

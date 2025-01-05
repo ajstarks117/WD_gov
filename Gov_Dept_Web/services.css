@@ -1,0 +1,330 @@
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --line: #17501b;
+  --bg: #96ffee49;
+  --text: #03bb7d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+  background-color: #1b5e20;
+  color: white;
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-section img {
+  height: 50px;
+}
+
+.department-name h1 {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.department-name p {
+  font-size: 14px;
+}
+
+/* Navigation Styles */
+nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  display: flex;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+nav a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+/* Hidden dropdown menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  margin: 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #2ab425;
+  color: #000;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Hero Section */
+.main-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.main-content h2 {
+  color: var(--line);
+  text-align: center;
+  font-size: 30px;
+}
+
+.main-content p {
+  color: var(--text);
+  text-align: center;
+  font-size: 17px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background-color: var(--bg);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card h3 {
+  color: var(--line);
+  margin-bottom: 1rem;
+}
+
+.service-card p {
+  color: var(--text);
+  line-height: 1.4;
+  text-align: left;
+  font-size: 15px;
+}
+
+.apply {
+  color: #299330;
+  font-size: 15px;
+}
+
+.service-card a {
+  text-decoration: none;
+  color: #299330;
+}
+
+button {
+  background-color: #1b5e20;
+  color: white;
+  padding-bottom: 8px;
+  padding-inline-end: 20px;
+  padding-inline-start: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #2e7d32;
+}
+
+/* Footer */
+footer {
+  background-color: #0a3d12;
+  color: white;
+  padding: 40px 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.footer-section h4 {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.footer-section p,
+.footer-section li {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #a5d6a7;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.newsletter input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.newsletter button {
+  background-color: #2e7d32;
+  padding: 8px 20px;
+}
+
+.newsletter button:hover {
+  background-color: #1b5e20;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #2e7d32;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* crop styles */
+
+.crop {
+  display: inline-block;
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  background: url("img/crop.webp") no-repeat center;
+  background-size: contain;
+  transform: scale(0);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: spin 1s infinite linear;
+  opacity: 0;
+}
+
+nav a:hover .crop {
+  transform: scale(1.5); /* Make the coin visible */
+  opacity: 1; /* Fade it in */
+}
+
+.facebook:hover {
+  transform: scale(1.5);
+  border: solid 2px #00fd15;
+  border-radius: 100%;
+  border-style: outset;
+}
+
+.twitter-x:hover {
+  transform: scale(1.5);
+  border: solid 2px #00fd15;
+  border-radius: 100%;
+  border-style: outset;
+}
+
+.youtube:hover {
+  transform: scale(1.5);
+  border: solid 2px #00fd15;
+  border-radius: 100%;
+  border-style: outset;
+}

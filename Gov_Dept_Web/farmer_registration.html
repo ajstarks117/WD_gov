@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farmer Registration</title>
+    <link rel="stylesheet" href="farmer_registration.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="img/emblem.webp" alt="Government Logo" class="logo" />
+          <div class="department-name">
+            <h1>Department of Agriculture</h1>
+            <p>Government of India</p>
+          </div>
+        </div>
+        <nav>
+          <a href="gov_landing.html"><span class="crop"></span>Home</a>
+          <a href="#"><span class="crop"></span>About</a>
+          <a href="services.html"><span class="crop"></span>Services</a>
+          <a href="#"><span class="crop"></span>Schemes</a>
+          <a href="contact.html"><span class="crop"></span>Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="form-card">
+        <div class="form-header">
+          <h1>NEW FARMER REGISTRATION FORM</h1>
+          <button class="back-btn">
+            <a href="gov_landing.html">Back</a>
+          </button>
+        </div>
+
+        <form id="farmerRegistration">
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="farmerType" value="rural" checked />
+              Rural Farmer Registration
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="farmerType" value="urban" />
+              Urban Farmer Registration
+            </label>
+          </div>
+
+          <div class="info-box">
+            Enter Your Aadhaar Number. Your Aadhaar will be authenticated with
+            UIDAI. You will be able to proceed for registration only if your
+            Aadhaar is authenticated.
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="aadhaar">Enter Aadhaar No</label>
+              <div class="password-container">
+                <input type="password" id="aadhaar" required />
+                <button
+                  type="button"
+                  class="toggle-password"
+                  onclick="toggleAadhaar()"
+                ></button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="mobile">Mobile Number</label>
+              <input type="tel" id="mobile" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="state">State</label>
+            <select id="state" required>
+              <option value="">--Select State--</option>
+              <option value="AP">Andhra Pradesh</option>
+              <option value="KA">Karnataka</option>
+              <option value="TN">Tamil Nadu</option>
+              <option value="KL">Kerala</option>
+              <option value="MH">Maharashtra</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <div class="captcha-container">
+              <div class="captcha-box" id="captchaText">yPqUQf</div>
+              <button
+                type="button"
+                class="refresh-btn"
+                onclick="refreshCaptcha()"
+              >
+                🔄
+              </button>
+              <input
+                type="text"
+                placeholder="Enter Captcha Code"
+                id="captchaInput"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Get OTP</button>
+        </form>
+      </div>
+    </div>
+
+    <script src >
+    </script>
+  </body>
+</html>
