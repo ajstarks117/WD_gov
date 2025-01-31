@@ -35,16 +35,18 @@
         <div class="filter-dropdown">
           <select>
             <option value="">Filter by Category</option>
-            <option value="financial">Financial Support</option>
+            <option value="Financial Aid">Financial Support</option>
             <option value="irrigation">Irrigation</option>
             <option value="insurance">Insurance</option>
             <option value="equipment">Equipment</option>
+            <option value="Infrastructure">Infrastructure</option>
           </select>
         </div>
+
         <div class="filter-dropdown">
           <select>
             <option value="">Filter by State</option>
-            <option value="all">All India</option>
+            <option value="all india">All India</option>
             <option value="up">Uttar Pradesh</option>
             <option value="mh">Maharashtra</option>
             <option value="ka">Karnataka</option>
@@ -90,7 +92,7 @@
               <p>Comprehensive crop insurance coverage</p>
               <div class="scheme-tags">
                 <span class="tag">Insurance</span>
-                <span class="tag">Risk Management</span>
+                <span class="tag">All India</span>
               </div>
             </div>
           </div>
@@ -119,7 +121,7 @@
               <p>Enhanced irrigation and water management</p>
               <div class="scheme-tags">
                 <span class="tag">Infrastructure</span>
-                <span class="tag">Water Management</span>
+                <span class="tag">All India</span>
               </div>
             </div>
           </div>
@@ -238,6 +240,24 @@
           arrow.textContent = details.classList.contains("active") ? "▲" : "▼";
         });
       });
+
+    document.querySelector(".search-box input").addEventListener("input", function() {
+      const searchTerm = this.value.toLowerCase();
+      document.querySelectorAll(".scheme-card").forEach((card) => {
+        const schemeTitle = card.querySelector("h3").textContent.toLowerCase();
+        card.style.display = schemeTitle.includes(searchTerm) ? "" : "none";
+      });
+    });
+
+    document.querySelectorAll(".filter-dropdown select").forEach((dropdown) => {
+      dropdown.addEventListener("change", function() {
+        const selectedValue = this.value.toLowerCase();
+        document.querySelectorAll(".scheme-card").forEach((card) => {
+          const tags = Array.from(card.querySelectorAll(".scheme-tags .tag")).map(tag => tag.textContent.toLowerCase());
+          card.style.display = selectedValue === "" || tags.includes(selectedValue) ? "" : "none";
+        });
+      });
+    });
     </script>
   </body>
 </html>
