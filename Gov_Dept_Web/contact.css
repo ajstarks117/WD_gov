@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
@@ -261,4 +261,25 @@ footer {
 nav a:hover .crop {
   transform: scale(1.5); /* Make the coin visible */
   opacity: 1; /* Fade it in */
+}
+
+.facebook:hover {
+  transform: scale(1.5);
+  border: solid 2px #00fd15;
+  border-radius: 100%;
+  border-style: outset;
+}
+
+.twitter-x:hover {
+  transform: scale(1.5);
+  border: solid 2px #00fd15;
+  border-radius: 100%;
+  border-style: outset;
+}
+
+.youtube:hover {
+  transform: scale(1.5);
+  border: solid 2px #00fd15;
+  border-radius: 100%;
+  border-style: outset;
 }

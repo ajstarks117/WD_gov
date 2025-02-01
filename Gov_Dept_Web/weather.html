@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agricultural Weather Dashboard</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="weather.css" />
+  </head>
+  <body>
+    <div class="loading-screen" id="loadingScreen">
+      <div class="plant-container">
+        <div class="soil"></div>
+        <div class="plant-stem" id="plantStem">
+          <div class="leaf leaf-left"></div>
+          <div class="leaf leaf-right"></div>
+          <div class="plant-top">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M7 20h10" />
+              <path d="M10 20c5.5-2.5.8-6.4 3-10" />
+              <path
+                d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"
+              />
+              <path
+                d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="loading-content">
+        <h2 class="loading-title">Growing your dashboard...</h2>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p class="progress-text" id="progressText">0%</p>
+      </div>
+    </div>
+
+    <div class="dashboard">
+      <div class="header">
+        <h1>Agricultural Weather Updates</h1>
+        <select id="regionSelect" class="region-select">
+          <option value="central">Central Region</option>
+          <option value="north">Northern Region</option>
+          <option value="south">Southern Region</option>
+          <option value="east">Eastern Region</option>
+          <option value="west">Western Region</option>
+        </select>
+      </div>
+
+      <div class="main-content">
+        <div class="loading" id="loading">
+          <i class="fas fa-spinner"></i>
+          <p>Loading weather data...</p>
+        </div>
+
+        <div class="weather-cards">
+          <div class="weather-card">
+            <i class="fas fa-temperature-high"></i>
+            <div class="weather-value" id="temperature">--°C</div>
+            <div class="weather-label">Temperature</div>
+          </div>
+          <div class="weather-card">
+            <i class="fas fa-tint"></i>
+            <div class="weather-value" id="humidity">--%</div>
+            <div class="weather-label">Humidity</div>
+          </div>
+          <div class="weather-card">
+            <i class="fas fa-wind"></i>
+            <div class="weather-value" id="windSpeed">-- km/h</div>
+            <div class="weather-label">Wind Speed</div>
+          </div>
+          <div class="weather-card">
+            <i class="fas fa-cloud-rain"></i>
+            <div class="weather-value" id="rainfall">-- mm</div>
+            <div class="weather-label">Rainfall</div>
+          </div>
+        </div>
+
+        <h2 class="section-title">Weather Alerts</h2>
+        <div id="alertsContainer"></div>
+
+        <h2 class="section-title">3-Day Forecast</h2>
+        <div class="forecast" id="forecastContainer"></div>
+
+        <h2 class="section-title">Agricultural Advisory</h2>
+        <ul class="advisory-list" id="advisoryList"></ul>
+      </div>
+    </div>
+
+    <script src="weather.js"></script>
+  </body>
+</html>
