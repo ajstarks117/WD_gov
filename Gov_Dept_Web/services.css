@@ -147,7 +147,7 @@ nav a.active {
 }
 
 .service-card {
-  background-color: var(--bg);
+  background-color: #e8f5e9;
   border-radius: 15px;
   padding: 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -155,6 +155,7 @@ nav a.active {
 }
 
 .service-card:hover {
+  box-shadow: 0 0px 15px rgba(17, 139, 33, 0.788);
   transform: translateY(-5px);
 }
 
