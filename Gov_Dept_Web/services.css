@@ -21,7 +21,7 @@
 
 /* Header Styles */
 header {
-  background-color: #1b5e20;
+  background: linear-gradient(to right, #2e7d32, #c9b037);
   color: white;
   padding: 15px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -206,7 +206,7 @@ button:hover {
 
 /* Footer */
 footer {
-  background-color: #0a3d12;
+  background: linear-gradient(to right, #2e7d32, #c9b037);
   color: white;
   padding: 40px 0 20px;
 }
