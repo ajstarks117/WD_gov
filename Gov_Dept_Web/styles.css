@@ -325,7 +325,7 @@ footer {
   .links-grid,
   .updates-grid,
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .hero-text h2 {

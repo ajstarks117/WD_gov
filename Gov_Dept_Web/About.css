@@ -270,16 +270,58 @@ footer {
   font-size: 14px;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
-  .container {
-    padding: 1rem;
+  .header-content {
+    flex-direction: column;
+    gap: 20px;
   }
 
-  .nav a {
-    display: block;
-    margin: 0.5rem 0;
+  nav {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .links-grid,
+  .updates-grid,
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-text h2 {
+    font-size: 32px;
+  }
+
+  .hero-text p {
+    font-size: 18px;
+  }
+
+  .card {
+    padding: 20px;
   }
 }
+
+@media (max-width: 480px) {
+  .logo-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .department-name h1 {
+    font-size: 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* crop styles */
 
 .crop {
