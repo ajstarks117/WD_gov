@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agricultural Market Prices</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-green: #2b5329;
+        --light-green: #f0f7f0;
+        --medium-green: #4a7846;
+        --border-green: #86a583;
+        --alert-orange: #fff3e0;
+        --text-dark: #1a1a1a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--light-green);
+        padding: 20px;
+      }
+
+      .dashboard {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .header {
+        background-color: var(--primary-green);
+        color: white;
+        padding: 20px;
+        border-radius: 10px 10px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .filters {
+        display: flex;
+        gap: 15px;
+      }
+
+      .filter-select {
+        padding: 8px;
+        border-radius: 5px;
+        border: none;
+        background-color: white;
+        color: var(--primary-green);
+      }
+
+      .main-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .price-summary {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .summary-card {
+        background-color: white;
+        border: 2px solid var(--border-green);
+        border-radius: 10px;
+        padding: 20px;
+      }
+
+      .summary-card h3 {
+        color: var(--primary-green);
+        margin-bottom: 10px;
+      }
+
+      .price-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .price-card {
+        background: white;
+        border: 1px solid var(--border-green);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .price-card-header {
+        background: var(--medium-green);
+        color: white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .price-card-body {
+        padding: 15px;
+      }
+
+      .price-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border-green);
+      }
+
+      .price-trend {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .trend-up {
+        color: #4caf50;
+      }
+
+      .trend-down {
+        color: #f44336;
+      }
+
+      .market-insights {
+        background-color: var(--alert-orange);
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 5px;
+      }
+
+      .loading {
+        text-align: center;
+        padding: 20px;
+        color: var(--primary-green);
+      }
+
+      .loading i {
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .filters {
+          flex-direction: column;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard">
+      <div class="header">
+        <h1>Agricultural Market Prices</h1>
+        <div class="filters">
+          <select class="filter-select" id="marketSelect">
+            <option value="all">All Markets</option>
+            <option value="delhi">Delhi</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="bangalore">Bangalore</option>
+          </select>
+          <select class="filter-select" id="categorySelect">
+            <option value="all">All Categories</option>
+            <option value="cereals">Cereals</option>
+            <option value="pulses">Pulses</option>
+            <option value="vegetables">Vegetables</option>
+            <option value="fruits">Fruits</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div id="loading" class="loading">
+          <i class="fas fa-spinner fa-2x"></i>
+          <p>Fetching latest prices...</p>
+        </div>
+
+        <div class="price-summary">
+          <div class="summary-card">
+            <h3>Price Trends</h3>
+            <div id="trendSummary">
+              <div class="price-row">
+                <span>Increasing</span>
+                <span id="increasingCount">0 items</span>
+              </div>
+              <div class="price-row">
+                <span>Decreasing</span>
+                <span id="decreasingCount">0 items</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <h3>Market Overview</h3>
+            <div id="marketSummary">
+              <div class="price-row">
+                <span>Active Markets</span>
+                <span id="activeMarkets">0</span>
+              </div>
+              <div class="price-row">
+                <span>Total Commodities</span>
+                <span id="totalCommodities">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="market-insights" id="marketInsights">
+          <strong>Market Update:</strong> Loading market insights...
+        </div>
+
+        <div class="price-grid" id="priceGrid">
+          <!-- Price cards will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Sample structure for the API response
+      const sampleApiResponse = {
+        markets: [
+          {
+            name: "Delhi",
+            commodities: [
+              {
+                name: "Wheat",
+                category: "cereals",
+                current_price: 2400,
+                previous_price: 2350,
+                unit: "quintal",
+                updated_at: "2024-02-08T10:00:00",
+              },
+              // More commodities...
+            ],
+          },
+          // More markets...
+        ],
+      };
+
+      class MarketPriceManager {
+        constructor() {
+          this.priceData = null;
+          this.selectedMarket = "all";
+          this.selectedCategory = "all";
+        }
+
+        async fetchPrices() {
+          try {
+            // Replace with actual API endpoint
+            const response = await fetch("YOUR_API_ENDPOINT");
+            this.priceData = await response.json();
+            return this.priceData;
+          } catch (error) {
+            console.error("Error fetching prices:", error);
+            throw error;
+          }
+        }
+
+        filterData() {
+          if (!this.priceData) return [];
+
+          return this.priceData.markets.reduce((acc, market) => {
+            if (
+              this.selectedMarket === "all" ||
+              market.name.toLowerCase() === this.selectedMarket
+            ) {
+              const filteredCommodities = market.commodities.filter(
+                (commodity) =>
+                  this.selectedCategory === "all" ||
+                  commodity.category === this.selectedCategory
+              );
+              if (filteredCommodities.length > 0) {
+                acc.push({
+                  ...market,
+                  commodities: filteredCommodities,
+                });
+              }
+            }
+            return acc;
+          }, []);
+        }
+
+        updateUI(filteredData) {
+          const priceGrid = document.getElementById("priceGrid");
+          priceGrid.innerHTML = "";
+
+          filteredData.forEach((market) => {
+            const marketCard = this.createMarketCard(market);
+            priceGrid.appendChild(marketCard);
+          });
+
+          this.updateSummary(filteredData);
+          this.updateInsights(filteredData);
+        }
+
+        createMarketCard(market) {
+          const card = document.createElement("div");
+          card.className = "price-card";
+
+          card.innerHTML = `
+                    <div class="price-card-header">
+                        <h3>${market.name}</h3>
+                        <span>Last Updated: ${new Date().toLocaleDateString()}</span>
+                    </div>
+                    <div class="price-card-body">
+                        ${market.commodities
+                          .map(
+                            (commodity) => `
+                            <div class="price-row">
+                                <span>${commodity.name} (${
+                              commodity.unit
+                            })</span>
+                                <div class="price-trend">
+                                    ₹${commodity.current_price}
+                                    ${this.getTrendIcon(
+                                      commodity.current_price,
+                                      commodity.previous_price
+                                    )}
+                                </div>
+                            </div>
+                        `
+                          )
+                          .join("")}
+                    </div>
+                `;
+
+          return card;
+        }
+
+        getTrendIcon(current, previous) {
+          if (current > previous) {
+            return '<i class="fas fa-arrow-up trend-up"></i>';
+          } else if (current < previous) {
+            return '<i class="fas fa-arrow-down trend-down"></i>';
+          }
+          return '<i class="fas fa-minus"></i>';
+        }
+
+        updateSummary(data) {
+          let increasing = 0;
+          let decreasing = 0;
+          let totalCommodities = 0;
+
+          data.forEach((market) => {
+            market.commodities.forEach((commodity) => {
+              totalCommodities++;
+              if (commodity.current_price > commodity.previous_price)
+                increasing++;
+              if (commodity.current_price < commodity.previous_price)
+                decreasing++;
+            });
+          });
+
+          document.getElementById(
+            "increasingCount"
+          ).textContent = `${increasing} items`;
+          document.getElementById(
+            "decreasingCount"
+          ).textContent = `${decreasing} items`;
+          document.getElementById("activeMarkets").textContent = data.length;
+          document.getElementById("totalCommodities").textContent =
+            totalCommodities;
+        }
+
+        updateInsights(data) {
+          // Add market insights logic here
+          const insights = document.getElementById("marketInsights");
+          insights.innerHTML = `
+                    <strong>Market Update:</strong> 
+                    Showing prices for ${data.length} markets and ${
+            this.selectedCategory === "all"
+              ? "all categories"
+              : this.selectedCategory
+          }.
+                    ${this.generateMarketInsights(data)}
+                `;
+        }
+
+        generateMarketInsights(data) {
+          // Add logic to generate insights based on price trends
+          return "Prices are generally stable across markets.";
+        }
+      }
+
+      // Initialize and setup event listeners
+      const marketManager = new MarketPriceManager();
+
+      document
+        .getElementById("marketSelect")
+        .addEventListener("change", (e) => {
+          marketManager.selectedMarket = e.target.value;
+          const filteredData = marketManager.filterData();
+          marketManager.updateUI(filteredData);
+        });
+
+      document
+        .getElementById("categorySelect")
+        .addEventListener("change", (e) => {
+          marketManager.selectedCategory = e.target.value;
+          const filteredData = marketManager.filterData();
+          marketManager.updateUI(filteredData);
+        });
+
+      // Initial load
+      window.addEventListener("load", async () => {
+        try {
+          // For demo purposes, using sample data
+          marketManager.priceData = sampleApiResponse;
+          const filteredData = marketManager.filterData();
+          document.getElementById("loading").style.display = "none";
+          marketManager.updateUI(filteredData);
+        } catch (error) {
+          console.error("Error loading data:", error);
+          document.getElementById("loading").innerHTML = `
+                    <p class="error">Error loading market prices. Please try again later.</p>
+                `;
+        }
+      });
+    </script>
+  </body>
+</html>

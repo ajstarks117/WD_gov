@@ -51,7 +51,7 @@ header {
 /* Navigation Styles */
 nav {
   display: flex;
-  gap: 30px;
+  gap: 15px;
   align-items: center;
 }
 
@@ -71,9 +71,6 @@ nav a:hover {
   color: white;
 }
 
-nav a.active {
-  background-color: rgba(255, 255, 255, 0.2);
-}
 
 /* Quick Links Section */
 .quick-links {
