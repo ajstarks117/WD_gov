@@ -1,5 +1,5 @@
-   // Handle FAQ item clicks
-   document.querySelectorAll('.faq-question').forEach(question => {
+// Handle FAQ item clicks
+document.querySelectorAll('.faq-question').forEach(question => {
     question.addEventListener('click', () => {
         const item = question.parentElement;
         const isActive = item.classList.contains('active');
@@ -31,4 +31,44 @@ faqSearch.addEventListener('input', (e) => {
             item.style.display = 'none';
         }
     });
+});
+
+// Enhanced hamburger menu functionality
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+const body = document.body;
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && 
+        !navLinks.contains(e.target) && 
+        navLinks.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        body.style.overflow = '';
+    }
+});
+
+// Close menu when clicking on a link
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        body.style.overflow = '';
+    });
+});
+
+// Close menu on window resize if open
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        body.style.overflow = '';
+    }
 });

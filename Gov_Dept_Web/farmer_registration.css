@@ -88,6 +88,76 @@ nav a:hover .crop {
   opacity: 1; /* Fade it in */
 }
 
+/* Add these styles after the existing nav styles */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.hamburger span {
+  width: 30px;
+  height: 3px;
+  background: white;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 250px;
+    background: linear-gradient(to right, #2e7d32, #c9b037);
+    flex-direction: column;
+    padding: 80px 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 5;
+  }
+
+  nav.active {
+    display: flex;
+    right: 0;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+
+  .hamburger.active span:first-child {
+    transform: rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:last-child {
+    transform: rotate(-45deg);
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
 body {
   background-image: url('img/bg4.jpg');
   background-size: 100% 100%;

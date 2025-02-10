@@ -362,3 +362,181 @@ nav a:hover .crop {
   border-radius: 100%;
   border-style: outset;
 }
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  nav {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .links-grid,
+  .updates-grid,
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-text h2 {
+    font-size: 32px;
+  }
+
+  .hero-text p {
+    font-size: 18px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  nav {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    gap: 0;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #2e7d32, #c9b037);
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    transition: 0.3s;
+    z-index: 999;
+    padding-top: 80px;
+  }
+
+  nav.active {
+    left: 0;
+  }
+
+  nav a {
+    margin: 16px 0;
+    font-size: 1.2rem;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  nav.active a {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  nav a:nth-child(1) { transition-delay: 0.1s; }
+  nav a:nth-child(2) { transition-delay: 0.2s; }
+  nav a:nth-child(3) { transition-delay: 0.3s; }
+  nav a:nth-child(4) { transition-delay: 0.4s; }
+  nav a:nth-child(5) { transition-delay: 0.5s; }
+  nav a:nth-child(6) { transition-delay: 0.6s; }
+
+  .header-content {
+    padding: 0 20px;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .department-name h1 {
+    font-size: 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* crop styles */
+
+.crop {
+  display: inline-block;
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  background: url("img/crop.webp") no-repeat center;
+  background-size: contain;
+  transform: scale(0);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: spin 1s infinite linear;
+  opacity: 0;
+}
+
+nav a:hover .crop {
+  transform: scale(1.5); /* Make the coin visible */
+  opacity: 1; /* Fade it in */
+}
+
+.facebook:hover {
+  transform: scale(1.5);
+  border: solid 2px #00fd15;
+  border-radius: 100%;
+  border-style: outset;
+}
+
+.twitter-x:hover {
+  transform: scale(1.5);
+  border: solid 2px #00fd15;
+  border-radius: 100%;
+  border-style: outset;
+}
+
+.youtube:hover {
+  transform: scale(1.5);
+  border: solid 2px #00fd15;
+  border-radius: 100%;
+  border-style: outset;
+}
