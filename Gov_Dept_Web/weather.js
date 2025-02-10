@@ -35,11 +35,11 @@ const WEATHER_API_KEY = "9c571552169f2a3e3d48de4739dea199";
 
 // Regional coordinates
 const regions = {
-  central: { lat: 51.5074, lon: -0.1278 },
-  north: { lat: 55.9533, lon: -3.1883 },
-  south: { lat: 50.9097, lon: -1.4044 },
-  east: { lat: 52.6369, lon: 1.1398 },
-  west: { lat: 51.4545, lon: -2.5879 },
+  central: { lat: 23.6102, lon: 85.2799 }, // Ranchi, Jharkhand
+  north: { lat: 28.6139, lon: 77.2090 },   // Delhi
+  south: { lat: 12.9716, lon: 77.5946 },   // Bangalore, Karnataka
+  east: { lat: 22.5726, lon: 88.3639 },    // Kolkata, West Bengal
+  west: { lat: 19.07283000, lon: 72.88261000 },    // Mumbai, Maharashtra
 };
 
 // DOM Elements
@@ -115,7 +115,10 @@ function updateAlerts(condition, temp) {
 }
 
 function updateForecast(forecastData) {
-  const threeDayForecast = forecastData.slice(0, 3);
+  console.log(forecastData); // Add this line to log the forecast data
+  const threeDayForecast = forecastData.filter((entry, index, self) => 
+    self.findIndex(e => new Date(e.dt * 1000).getDate() === new Date(entry.dt * 1000).getDate()) === index
+  ).slice(0, 3);
   forecastContainer.innerHTML = threeDayForecast
     .map(
       (day) => `
